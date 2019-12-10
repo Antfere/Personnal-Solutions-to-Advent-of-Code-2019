@@ -1,0 +1,14 @@
+import numpy
+f = open('input.txt', 'r')
+modules = []
+for line in f.readlines():
+    modules.extend(line.split())
+f.close()
+modules = [int(i) for i in modules]
+total = 0
+for i in range(len(modules)):
+  int(modules[i])
+  modules[i] = numpy.floor(modules[i] / 3) - 2
+for i in range(len(modules)):
+    total = total + modules[i]
+print(total)
