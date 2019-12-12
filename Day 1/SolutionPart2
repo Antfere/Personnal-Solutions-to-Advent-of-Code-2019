@@ -1,0 +1,19 @@
+import numpy
+f = open('input.txt', 'r')
+modules = []
+for line in f.readlines():
+    modules.extend(line.split())
+f.close()
+modules = [int(i) for i in modules]
+total = 0
+fuel = []
+def calculateFuel(modules):
+  for i in range(len(modules)):
+    modules[i] = numpy.floor(modules[i]/3)-2
+    fuel.append(modules[i])
+    while ((modules[i]/3)- 2 >= 1):
+      calculateFuel(modules)
+calculateFuel(modules)
+
+total = sum(fuel)
+print(total)
