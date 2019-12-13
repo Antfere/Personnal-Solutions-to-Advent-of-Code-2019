@@ -11,9 +11,12 @@ def calculateFuel(modules):
   for i in range(len(modules)):
     modules[i] = numpy.floor(modules[i]/3)-2
     fuel.append(modules[i])
-    while ((modules[i]/3)- 2 >= 1):
+    while ((numpy.floor(modules[i]/3))- 2 >= 1):
       calculateFuel(modules)
 calculateFuel(modules)
-
+for i in range(len(fuel)):
+  if fuel[i] < 0:
+    fuel[i] = 0
 total = sum(fuel)
+print(fuel)
 print(total)
