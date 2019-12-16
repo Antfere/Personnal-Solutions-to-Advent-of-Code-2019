@@ -5,21 +5,17 @@ for line in f.readlines():
 f.close()
 ints = [int(i) for i in ints]
 counter = 0
-def opcode(ints):
-  global counter
-  counter = counter + 4
-  for counter in range(len(ints)):
-    if ints[counter] == 1:
+def opcode(ints, counter):
+    if ints[counter] == 99:
+      print(ints)
+    elif ints[counter] == 1:
       ints[counter+3] = ints[1+counter] + ints[2+counter]
-      #counter = counter + 4
+      counter = counter + 4
       print(counter)
-      opcode(ints)
+      opcode(ints, counter)
     elif ints[counter] == 2:
       ints[3+counter] = ints[1+counter] * ints[2+counter]
-      #counter = counter + 4
-      opcode(ints)
-    elif ints[counter] == 99:
-      #counter = counter + (4 + len(ints))
-
-      print(ints)
-opcode(ints)
+      counter = counter + 4
+      opcode(ints, counter)
+    
+opcode(ints, counter)
