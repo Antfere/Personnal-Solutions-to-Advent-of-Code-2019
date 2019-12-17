@@ -6,15 +6,21 @@ f.close()
 ints = [int(i) for i in ints]
 counter = 0
 def opcode(ints, counter):
-    if ints[counter] == 99:
+    if ints[counter] == 99:#base case
       print(ints)
     elif ints[counter] == 1:
-      ints[counter+3] = ints[1+counter] + ints[2+counter]
+      intsvalue1 = ints[counter+1]#Value of the placement of a element in the ints list plus counter
+      intsvalue2 = ints[counter+2]#Value of the placement of a element in the ints list plus counter
+      intsvalue3 = ints[counter+3]#Value of the placement of a element in the ints list plus counter
+      ints[intsvalue3] = ints[intsvalue1] + ints[intsvalue2] #Take value of the placement of an element and use that as the new placement in the ints list. Quite convoluted!
       counter = counter + 4
       print(counter)
       opcode(ints, counter)
     elif ints[counter] == 2:
-      ints[3+counter] = ints[1+counter] * ints[2+counter]
+      intsvalue1 = ints[counter+1]#Value of the placement of a element in the ints list plus counter
+      intsvalue2 = ints[counter+2]#Value of the placement of a element in the ints list plus counter
+      intsvalue3 = ints[counter+3]#Value of the placement of a element in the ints list plus counter
+      ints[intsvalue3] = ints[intsvalue1] * ints[intsvalue2]#Take value of the placement of an element and use that as the new placement in the ints list. Quite convoluted!
       counter = counter + 4
       opcode(ints, counter)
     
